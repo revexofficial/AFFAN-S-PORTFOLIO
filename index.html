@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,7 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom right, #ffe6e6, #e0f7f1);
+      background: linear-gradient(to bottom right, #d1c4e9, #b2dfdb);
       color: #333;
       scroll-behavior: smooth;
     }
@@ -18,7 +17,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #b388eb;
+      background: #6a1b9a;
       color: white;
       padding: 10px 16px;
       border-radius: 8px;
@@ -31,17 +30,15 @@
       100% { transform: scale(1); }
     }
     .nav-link.active {
-      color: #b388eb;
+      color: #6a1b9a;
       font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-<!-- Floating CTA -->
 <a href="#contact" id="floating-cta">💼 Hire Me</a>
 
-<!-- Navbar -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 p-5 flex justify-between items-center bg-white bg-opacity-70 backdrop-blur-md z-50 shadow text-[#333]">
   <div class="text-2xl font-bold">Affan</div>
   <ul class="hidden md:flex space-x-5 font-medium" id="nav-links">
@@ -53,48 +50,43 @@
   </ul>
 </nav>
 
-<!-- Hero -->
 <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
   <h1 id="typewriter" class="text-4xl md:text-6xl font-bold text-gray-900"></h1>
-  <p class="mt-4 text-lg text-gray-700">Building digital empires from my bedroom.</p>
+  <p class="mt-4 text-lg text-gray-700">Designing smooth, powerful digital experiences that tell stories and spark ideas.</p>
   <div id="lottie-anim" class="mt-6 w-60 h-60"></div>
-  <a href="AffanResume.pdf" download class="mt-4 inline-block p-2 bg-[#b388eb] text-white rounded hover:bg-[#89cff0] transition">📄 Download CV</a>
+  <a href="AffanResume.pdf" download class="mt-4 inline-block p-2 bg-[#6a1b9a] text-white rounded hover:bg-[#009688] transition">📄 Download CV</a>
 </section>
 
-<!-- About -->
 <section id="about" class="h-screen flex flex-col justify-center items-center px-4 text-center">
   <h2 class="text-4xl font-bold text-gray-900">About Me</h2>
-  <p class="mt-4 max-w-xl text-gray-700">I'm a passionate developer who blends design and code to create clean, modern experiences.</p>
+  <p class="mt-4 max-w-xl text-gray-700">I'm a full-stack developer who blends creativity and code to craft aesthetic, performant, and user-friendly experiences. I specialize in modern UI/UX, responsive layouts, and building products that feel alive.</p>
 </section>
 
-<!-- Skills -->
 <section id="skills" class="h-screen flex flex-col justify-center items-center px-4 text-center">
   <h2 class="text-4xl font-bold text-gray-900">Skills</h2>
   <ul class="mt-4 space-y-2 text-gray-700">
-    <li class="hover:text-[#b388eb] transition">Web Development</li>
-    <li class="hover:text-[#b388eb] transition">App Development</li>
-    <li class="hover:text-[#b388eb] transition">Logo Design</li>
-    <li class="hover:text-[#b388eb] transition">Templates</li>
-    <li class="hover:text-[#b388eb] transition">Digital Artwork</li>
+    <li class="hover:text-[#6a1b9a] transition">Web Development</li>
+    <li class="hover:text-[#6a1b9a] transition">App Development</li>
+    <li class="hover:text-[#6a1b9a] transition">UI/UX Design</li>
+    <li class="hover:text-[#6a1b9a] transition">Digital Art</li>
+    <li class="hover:text-[#6a1b9a] transition">Automation</li>
   </ul>
 </section>
 
-<!-- Projects -->
 <section id="projects" class="min-h-screen flex flex-col justify-center items-center px-4 text-center">
   <h2 class="text-4xl font-bold text-gray-900 mb-6">My Work</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
     <div class="bg-white rounded-lg p-4 shadow">
-      <h3 class="text-xl font-semibold text-gray-800">Project One</h3>
-      <p class="text-gray-600">Landing page for a digital brand.</p>
+      <h3 class="text-xl font-semibold text-gray-800">E-Commerce Site</h3>
+      <p class="text-gray-600">Modern responsive shopping experience using Tailwind and JavaScript.</p>
     </div>
     <div class="bg-white rounded-lg p-4 shadow">
-      <h3 class="text-xl font-semibold text-gray-800">Project Two</h3>
-      <p class="text-gray-600">Portfolio site built with Tailwind.</p>
+      <h3 class="text-xl font-semibold text-gray-800">Portfolio Builder</h3>
+      <p class="text-gray-600">Dynamic portfolio website with animation, forms, and deployment setup.</p>
     </div>
   </div>
 </section>
 
-<!-- Contact -->
 <section id="contact" class="h-screen flex flex-col justify-center items-center px-4 text-center">
   <h2 class="text-4xl font-bold text-gray-900">Contact</h2>
   <p class="mt-4 text-gray-700">Let's work together 💌</p>
@@ -102,27 +94,24 @@
     <input type="text" name="name" placeholder="Your Name" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required>
     <input type="email" name="email" placeholder="Your Email" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required>
     <textarea name="message" placeholder="Your Message" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required></textarea>
-    <button type="submit" class="w-full p-2 bg-[#b388eb] text-white rounded hover:bg-[#89cff0] transition">Send</button>
+    <button type="submit" class="w-full p-2 bg-[#6a1b9a] text-white rounded hover:bg-[#009688] transition">Send</button>
   </form>
   <div id="form-message" class="text-green-500 mt-3 hidden">Thanks! Your message has been sent.</div>
 </section>
 
-<!-- Footer -->
 <footer class="p-5 text-center text-[#555]">
   <p>© 2025 Affan — Built with 💖</p>
 </footer>
 
-<!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
-  // Typewriter lines
   const lines = ["Welcome to My World", "I'm Affan", "I Build Digital Magic"];
   let index = 0;
   let element = document.getElementById("typewriter");
   function typeNext() {
     element.textContent = "";
-    element.style.borderRight = "3px solid #b388eb";
+    element.style.borderRight = "3px solid #6a1b9a";
     let i = 0;
     let interval = setInterval(() => {
       element.textContent += lines[index].charAt(i);
@@ -138,7 +127,6 @@
   }
   document.addEventListener("DOMContentLoaded", () => {
     typeNext();
-    // Lottie animation
     lottie.loadAnimation({
       container: document.getElementById('lottie-anim'),
       renderer: 'svg',
