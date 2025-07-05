@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,9 +9,14 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom right, #d1c4e9, #b2dfdb);
-      color: #333;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #eee;
       scroll-behavior: smooth;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     #floating-cta {
       position: fixed;
@@ -29,89 +34,109 @@
       50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
-    .nav-link.active {
-      color: #6a1b9a;
-      font-weight: bold;
+    canvas#bg {
+      position: fixed;
+      top: 0; left: 0;
+      z-index: -1;
     }
   </style>
 </head>
-<body>
+<body class="bg-black text-white">
 
+<!-- Particles Canvas -->
+<canvas id="bg"></canvas>
+
+<!-- Floating CTA -->
 <a href="#contact" id="floating-cta">💼 Hire Me</a>
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 p-5 flex justify-between items-center bg-white bg-opacity-70 backdrop-blur-md z-50 shadow text-[#333]">
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 p-5 flex justify-between items-center glass z-40">
   <div class="text-2xl font-bold">Affan</div>
-  <ul class="hidden md:flex space-x-5 font-medium" id="nav-links">
-    <li><a href="#hero" class="nav-link">Home</a></li>
-    <li><a href="#about" class="nav-link">About</a></li>
-    <li><a href="#skills" class="nav-link">Skills</a></li>
-    <li><a href="#projects" class="nav-link">Projects</a></li>
-    <li><a href="#contact" class="nav-link">Contact</a></li>
+  <ul class="hidden md:flex space-x-6 font-medium">
+    <li><a href="#hero" class="hover:text-purple-400">Home</a></li>
+    <li><a href="#about" class="hover:text-purple-400">About</a></li>
+    <li><a href="#skills" class="hover:text-purple-400">Skills</a></li>
+    <li><a href="#projects" class="hover:text-purple-400">Projects</a></li>
+    <li><a href="#contact" class="hover:text-purple-400">Contact</a></li>
   </ul>
 </nav>
 
-<section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
-  <h1 id="typewriter" class="text-4xl md:text-6xl font-bold text-gray-900"></h1>
-  <p class="mt-4 text-lg text-gray-700">Designing smooth, powerful digital experiences that tell stories and spark ideas.</p>
+<!-- Hero Section -->
+<section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4 pt-24">
+  <h1 id="typewriter" class="text-5xl md:text-6xl font-bold"></h1>
+  <p class="mt-4 text-lg text-gray-300">Crafting modern experiences through code and design.</p>
   <div id="lottie-anim" class="mt-6 w-60 h-60"></div>
-  <a href="AffanResume.pdf" download class="mt-4 inline-block p-2 bg-[#6a1b9a] text-white rounded hover:bg-[#009688] transition">📄 Download CV</a>
 </section>
 
-<section id="about" class="h-screen flex flex-col justify-center items-center px-4 text-center">
-  <h2 class="text-4xl font-bold text-gray-900">About Me</h2>
-  <p class="mt-4 max-w-xl text-gray-700">I'm a full-stack developer who blends creativity and code to craft aesthetic, performant, and user-friendly experiences. I specialize in modern UI/UX, responsive layouts, and building products that feel alive.</p>
+<!-- About Section -->
+<section id="about" class="min-h-screen flex flex-col justify-center items-center px-4 text-center glass mt-10 p-8">
+  <h2 class="text-4xl font-bold text-white">About Me</h2>
+  <p class="mt-4 max-w-xl text-gray-300">I’m Affan — a full-stack dev with a taste for design, animation, and digital storytelling. I build sleek UI/UX for brands, products, and ideas worth showing off.</p>
 </section>
 
-<section id="skills" class="h-screen flex flex-col justify-center items-center px-4 text-center">
-  <h2 class="text-4xl font-bold text-gray-900">Skills</h2>
-  <ul class="mt-4 space-y-2 text-gray-700">
-    <li class="hover:text-[#6a1b9a] transition">Web Development</li>
-    <li class="hover:text-[#6a1b9a] transition">App Development</li>
-    <li class="hover:text-[#6a1b9a] transition">UI/UX Design</li>
-    <li class="hover:text-[#6a1b9a] transition">Digital Art</li>
-    <li class="hover:text-[#6a1b9a] transition">Automation</li>
+<!-- Skills Section -->
+<section id="skills" class="min-h-screen flex flex-col justify-center items-center px-4 text-center glass mt-10 p-8">
+  <h2 class="text-4xl font-bold text-white">Skills</h2>
+  <ul class="mt-4 space-y-2 text-gray-300">
+    <li class="hover:text-purple-400 transition">HTML, CSS, Tailwind</li>
+    <li class="hover:text-purple-400 transition">JavaScript & GSAP</li>
+    <li class="hover:text-purple-400 transition">React & Web Apps</li>
+    <li class="hover:text-purple-400 transition">Digital Design</li>
+    <li class="hover:text-purple-400 transition">UI/UX Animation</li>
   </ul>
 </section>
 
-<section id="projects" class="min-h-screen flex flex-col justify-center items-center px-4 text-center">
-  <h2 class="text-4xl font-bold text-gray-900 mb-6">My Work</h2>
+<!-- Projects Section -->
+<section id="projects" class="min-h-screen flex flex-col justify-center items-center px-4 text-center glass mt-10 p-8">
+  <h2 class="text-4xl font-bold text-white mb-6">Projects</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-    <div class="bg-white rounded-lg p-4 shadow">
-      <h3 class="text-xl font-semibold text-gray-800">E-Commerce Site</h3>
-      <p class="text-gray-600">Modern responsive shopping experience using Tailwind and JavaScript.</p>
+    <div class="bg-white bg-opacity-10 rounded-lg p-4 shadow text-left">
+      <h3 class="text-xl font-semibold text-white">Startup Landing</h3>
+      <p class="text-gray-300">Hero animation, responsive, and call-to-action optimized.</p>
     </div>
-    <div class="bg-white rounded-lg p-4 shadow">
-      <h3 class="text-xl font-semibold text-gray-800">Portfolio Builder</h3>
-      <p class="text-gray-600">Dynamic portfolio website with animation, forms, and deployment setup.</p>
+    <div class="bg-white bg-opacity-10 rounded-lg p-4 shadow text-left">
+      <h3 class="text-xl font-semibold text-white">Creator Portfolio</h3>
+      <p class="text-gray-300">Aesthetic design with GSAP transitions and scroll FX.</p>
     </div>
   </div>
 </section>
 
-<section id="contact" class="h-screen flex flex-col justify-center items-center px-4 text-center">
-  <h2 class="text-4xl font-bold text-gray-900">Contact</h2>
-  <p class="mt-4 text-gray-700">Let's work together 💌</p>
+<!-- Contact Section -->
+<section id="contact" class="h-screen flex flex-col justify-center items-center px-4 text-center glass mt-10 p-8">
+  <h2 class="text-4xl font-bold text-white">Contact</h2>
+  <p class="mt-4 text-gray-300">Let’s build your digital vision together ✨</p>
+
   <form action="https://formspree.io/f/xrbkvbvw" method="POST" class="mt-4 space-y-3 w-full max-w-md">
-    <input type="text" name="name" placeholder="Your Name" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required>
-    <input type="email" name="email" placeholder="Your Email" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required>
-    <textarea name="message" placeholder="Your Message" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required></textarea>
-    <button type="submit" class="w-full p-2 bg-[#6a1b9a] text-white rounded hover:bg-[#009688] transition">Send</button>
+    <input type="text" name="name" placeholder="Your Name" class="w-full p-2 rounded bg-black text-white border border-gray-700" required>
+    <input type="email" name="email" placeholder="Your Email" class="w-full p-2 rounded bg-black text-white border border-gray-700" required>
+    <textarea name="message" placeholder="Your Message" class="w-full p-2 rounded bg-black text-white border border-gray-700" required></textarea>
+    <button type="submit" class="w-full p-2 bg-purple-700 text-white rounded hover:bg-purple-500 transition">Send</button>
   </form>
-  <div id="form-message" class="text-green-500 mt-3 hidden">Thanks! Your message has been sent.</div>
+
+  <!-- Socials -->
+  <div class="flex space-x-4 mt-6">
+    <a href="https://instagram.com/revex.inc" target="_blank"><img src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new.png"/></a>
+    <a href="https://github.com/revexdesigns" target="_blank"><img src="https://img.icons8.com/ios-filled/30/ffffff/github.png"/></a>
+    <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank"><img src="https://img.icons8.com/ios-filled/30/ffffff/linkedin.png"/></a>
+    <a href="https://youtube.com/@YOUR_YOUTUBE" target="_blank"><img src="https://img.icons8.com/ios-filled/30/ffffff/youtube-play.png"/></a>
+    <a href="https://twitter.com/YOUR_TWITTER" target="_blank"><img src="https://img.icons8.com/ios-filled/30/ffffff/twitterx--v1.png"/></a>
+    <a href="https://wa.me/9035374762" target="_blank"><img src="https://img.icons8.com/ios-filled/30/ffffff/whatsapp.png"/></a>
+  </div>
 </section>
 
-<footer class="p-5 text-center text-[#555]">
-  <p>© 2025 Affan — Built with 💖</p>
+<!-- Footer -->
+<footer class="p-5 text-center text-gray-400">
+  <p>© 2025 Affan — Built for greatness 🔥</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<!-- Scripts -->
 <script>
   const lines = ["Welcome to My World", "I'm Affan", "I Build Digital Magic"];
   let index = 0;
   let element = document.getElementById("typewriter");
+
   function typeNext() {
     element.textContent = "";
-    element.style.borderRight = "3px solid #6a1b9a";
     let i = 0;
     let interval = setInterval(() => {
       element.textContent += lines[index].charAt(i);
@@ -125,8 +150,11 @@
       }
     }, 100);
   }
+
   document.addEventListener("DOMContentLoaded", () => {
     typeNext();
+
+    // Lottie animation
     lottie.loadAnimation({
       container: document.getElementById('lottie-anim'),
       renderer: 'svg',
@@ -134,7 +162,41 @@
       autoplay: true,
       path: 'https://assets10.lottiefiles.com/packages/lf20_q5pk6p1k.json'
     });
+
+    // Particle background
+    const canvas = document.getElementById("bg");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let particles = [];
+
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "#ffffff22";
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
   });
 </script>
 </body>
 </html>
+
