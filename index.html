@@ -1,67 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Affan's Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Affan's Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .animate-typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid;
+      width: 100%;
+      animation: typewriter 4s steps(40) forwards;
+    }
+  </style>
 </head>
-<body class="bg-black text-white overflow-hidden">
-    <nav class="fixed top-0 left-0 right-0 p-5 flex justify-between items-center bg-black bg-opacity-70 backdrop-blur-md z-50">
-        <div class="text-2xl font-bold">SYED AFFAN</div>
-        <ul class="flex space-x-5">
-            <li><a href="#about" class="hover:text-blue-400 transition">ABOUT</a></li>
-            <li><a href="#skills" class="hover:text-blue-400 transition">SKILLS</a></li>
-            <li><a href="#contact" class="hover:text-blue-400 transition">CONTACT</a></li>
-        </ul>
-    </nav>
+<body class="bg-black text-white overflow-x-hidden">
 
-    <section id="hero" class="h-screen flex flex-col justify-center items-center text-center">
-        <h1 class="text-5xl font-bold animate-typewriter">Welcome to My World</h1>
-        <p class="mt-4 text-lg">"Building digital empires from my bedroom."</p>
-    </section>
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 p-5 flex justify-between items-center bg-black bg-opacity-70 backdrop-blur-md z-50">
+    <div class="text-2xl font-bold">Affan</div>
+    <ul class="flex space-x-5">
+      <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
+      <li><a href="#skills" class="hover:text-blue-400 transition">Skills</a></li>
+      <li><a href="#portfolio" class="hover:text-blue-400 transition">Portfolio</a></li>
+      <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+    </ul>
+  </nav>
 
-    <section id="about" class="h-screen flex flex-col justify-center items-center">
-        <h2 class="text-4xl font-bold">MY SELF</h2>
-        <p class="mt-4 max-w-xl text-center">I AM AN APP AND WEB DEVELOPER AND DIGITAL ARTIST.</p>
-    </section>
+  <!-- Hero -->
+  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center">
+    <h1 class="text-5xl font-bold animate-typewriter">Welcome to My World</h1>
+    <p class="mt-4 text-lg">"Building digital empires from my bedroom."</p>
+  </section>
 
-    <section id="skills" class="h-screen flex flex-col justify-center items-center">
-        <h2 class="text-4xl font-bold">Skills</h2>
-        <ul class="mt-4 space-y-2">
-            <li class="hover:text-blue-400 transition">DIGITAL TEMPLATES</li>
-            <li class="hover:text-blue-400 transition">WEB DEVELOPMENT</li>
-            <li class="hover:text-blue-400 transition">APP DEVELOPER</li>
-            <li class="hover:text-blue-400 transition">LOGO DESING</li>
-            <li class="hover:text-blue-400 transition">AI EXPERT</li>
-        </ul>
-        </ul>
-    </section>
+  <!-- About -->
+  <section id="about" class="h-screen flex flex-col justify-center items-center">
+    <h2 class="text-4xl font-bold">About Me</h2>
+    <p class="mt-4 max-w-xl text-center">I am a passionate developer who loves creating beautiful and functional web applications.</p>
+  </section>
 
-    
+  <!-- Skills -->
+  <section id="skills" class="h-screen flex flex-col justify-center items-center">
+    <h2 class="text-4xl font-bold">Skills</h2>
+    <ul class="mt-4 space-y-2">
+      <li class="hover:text-blue-400 transition">JavaScript</li>
+      <li class="hover:text-blue-400 transition">HTML & CSS</li>
+      <li class="hover:text-blue-400 transition">React</li>
+      <li class="hover:text-blue-400 transition">Node.js</li>
+    </ul>
+  </section>
 
-    <section id="contact" class="h-screen flex flex-col justify-center items-center">
-        <h2 class="text-4xl font-bold">Contact</h2>
-        <p class="mt-4">ANY PROJECT CONTACT ME!</p>
-        <form class="mt-4">
-            <input type="text" placeholder="Your Name" class="p-2 rounded bg-gray-800 text-white" required>
-            <input type="number" placeholder="Phone number" class="p-2 rounded bg-gray-800 text-white" required>
-            <input type="email" placeholder="Your Email" class="p-2 rounded bg-gray-800 text-white mt-2" required>
-            <textarea placeholder="Your Message" class="p-2 rounded bg-gray-800 text-white mt-2" required></textarea>
-            <button type="submit" class="mt-4 p-2 bg-blue-600 rounded hover:bg-blue-400 transition">Send</button>
-        </form>
-    </section>
+  <!-- Portfolio -->
+  <section id="portfolio" class="h-screen flex flex-col justify-center items-center">
+    <h2 class="text-4xl font-bold">Portfolio</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+      <div class="bg-gray-800 p-5 hover:bg-blue-600 transition">Project 1</div>
+      <div class="bg-gray-800 p-5 hover:bg-blue-600 transition">Project 2</div>
+      <div class="bg-gray-800 p-5 hover:bg-blue-600 transition">Project 3</div>
+    </div>
+  </section>
 
-    <footer class="p-5 text-center">
-        <p>Connect with me on social media!</p>
-        <div class="flex justify-center space-x-5 mt-2">
-            <a href="#" class="hover:text-blue-400 transition">LinkedIn</a>
-            <a href="#" class="hover:text-blue-400 transition">GitHub</a>
-        </div>
-    </footer>
+  <!-- Contact -->
+  <section id="contact" class="h-screen flex flex-col justify-center items-center">
+    <h2 class="text-4xl font-bold">Contact</h2>
+    <p class="mt-4">Feel free to reach out!</p>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="script.js"></script>
+    <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST" class="mt-4 space-y-3 w-full max-w-md">
+      <input type="text" name="name" placeholder="Your Name" class="w-full p-2 rounded bg-gray-800 text-white" required>
+      <input type="email" name="email" placeholder="Your Email" class="w-full p-2 rounded bg-gray-800 text-white" required>
+      <input type="text" name="phone" placeholder="Your Phone Number" class="w-full p-2 rounded bg-gray-800 text-white">
+      <textarea name="message" placeholder="Your Message" class="w-full p-2 rounded bg-gray-800 text-white" required></textarea>
+      <button type="submit" class="w-full p-2 bg-blue-600 rounded hover:bg-blue-400 transition">Send</button>
+    </form>
+
+    <div id="form-message" class="text-green-400 mt-3 hidden">Thanks! Your message has been sent.</div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="p-5 text-center">
+    <p>Connect with me on social media!</p>
+    <div class="flex justify-center space-x-5 mt-2">
+      <a href="#" class="hover:text-blue-400 transition">LinkedIn</a>
+      <a href="#" class="hover:text-blue-400 transition">GitHub</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("#hero h1", {
+      duration: 1.5,
+      y: -50,
+      opacity: 0,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top center",
+        toggleActions: "play none none reverse"
+      }
+    });
+
+    gsap.from("#about, #skills, #portfolio, #contact", {
+      duration: 1,
+      y: 50,
+      opacity: 0,
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top center",
+        toggleActions: "play none none reverse"
+      }
+    });
+
+    // Form feedback
+    const form = document.querySelector("form");
+    const message = document.getElementById("form-message");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" }
+      });
+
+      if (res.ok) {
+        form.reset();
+        message.classList.remove("hidden");
+      } else {
+        message.innerText = "Oops! Something went wrong.";
+        message.classList.remove("hidden");
+        message.classList.replace("text-green-400", "text-red-400");
+      }
+    });
+  </script>
 </body>
 </html>
