@@ -6,151 +6,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Affan's Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.4/build/player/lottie.min.js"></script>
   <style>
     body {
       font-family: 'Arial', sans-serif;
       background: linear-gradient(to bottom right, #ffe6e6, #e0f7f1);
       color: #333;
+      scroll-behavior: smooth;
+    }
+    #floating-cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #b388eb;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      animation: pulse 2s infinite;
+      z-index: 50;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .nav-link.active {
+      color: #b388eb;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 right-0 p-5 flex justify-between items-center bg-white bg-opacity-70 backdrop-blur-md z-50 shadow text-[#333]">
-    <div class="text-2xl font-bold">SYED AFFAN</div>
-    <ul class="flex space-x-5 font-medium">
-      <li><a href="#about" class="hover:text-[#b388eb] transition">About</a></li>
-      <li><a href="#skills" class="hover:text-[#b388eb] transition">Skills</a></li>
-      <li><a href="#contact" class="hover:text-[#b388eb] transition">Contact</a></li>
-    </ul>
-  </nav>
+<!-- Floating CTA -->
+<a href="#contact" id="floating-cta">💼 Hire Me</a>
 
-  <!-- Hero -->
-  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4">
-    <h1 id="typewriter" class="text-5xl font-bold text-gray-900">Welcome to My World</h1>
-    <p class="mt-4 text-lg text-gray-700">"Building digital empires from my bedroom."</p>
-  </section>
+<!-- Navbar -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 p-5 flex justify-between items-center bg-white bg-opacity-70 backdrop-blur-md z-50 shadow text-[#333]">
+  <div class="text-2xl font-bold">Affan</div>
+  <ul class="hidden md:flex space-x-5 font-medium" id="nav-links">
+    <li><a href="#hero" class="nav-link">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#skills" class="nav-link">Skills</a></li>
+    <li><a href="#projects" class="nav-link">Projects</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- About -->
-  <section id="about" class="h-screen flex flex-col justify-center items-center px-4 text-center">
-    <h2 class="text-4xl font-bold text-gray-900">About Me</h2>
-    <p class="mt-4 max-w-xl text-gray-700">I'm a passionate developer who brings minimalist design and smooth code together to build chill, aesthetic web experiences.</p>
-  </section>
+<!-- Hero -->
+<section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+  <h1 id="typewriter" class="text-4xl md:text-6xl font-bold text-gray-900"></h1>
+  <p class="mt-4 text-lg text-gray-700">Building digital empires from my bedroom.</p>
+  <div id="lottie-anim" class="mt-6 w-60 h-60"></div>
+  <a href="AffanResume.pdf" download class="mt-4 inline-block p-2 bg-[#b388eb] text-white rounded hover:bg-[#89cff0] transition">📄 Download CV</a>
+</section>
 
-  <!-- Skills -->
-  <section id="skills" class="h-screen flex flex-col justify-center items-center px-4 text-center">
-    <h2 class="text-4xl font-bold text-gray-900">Skills</h2>
-    <ul class="mt-4 space-y-2 text-gray-700">
-      <li class="hover:text-[#b388eb] transition">WEB DEVELOPMENT</li>
-      <li class="hover:text-[#b388eb] transition">APP DEVELOPMENT</li>
-      <li class="hover:text-[#b388eb] transition">LOGO DESIGN</li>
-      <li class="hover:text-[#b388eb] transition">TEMPLATES</li>
-      <li class="hover:text-[#b388eb] transition">DIGITAL ARTWORK</li>
-    </ul>
-  </section>
+<!-- About -->
+<section id="about" class="h-screen flex flex-col justify-center items-center px-4 text-center">
+  <h2 class="text-4xl font-bold text-gray-900">About Me</h2>
+  <p class="mt-4 max-w-xl text-gray-700">I'm a passionate developer who blends design and code to create clean, modern experiences.</p>
+</section>
 
-  <!-- Contact -->
-  <section id="contact" class="h-screen flex flex-col justify-center items-center px-4 text-center">
-    <h2 class="text-4xl font-bold text-gray-900">Contact</h2>
-    <p class="mt-4 text-gray-700">Let’s build something beautiful 🌸</p>
+<!-- Skills -->
+<section id="skills" class="h-screen flex flex-col justify-center items-center px-4 text-center">
+  <h2 class="text-4xl font-bold text-gray-900">Skills</h2>
+  <ul class="mt-4 space-y-2 text-gray-700">
+    <li class="hover:text-[#b388eb] transition">Web Development</li>
+    <li class="hover:text-[#b388eb] transition">App Development</li>
+    <li class="hover:text-[#b388eb] transition">Logo Design</li>
+    <li class="hover:text-[#b388eb] transition">Templates</li>
+    <li class="hover:text-[#b388eb] transition">Digital Artwork</li>
+  </ul>
+</section>
 
-    <form action="https://formspree.io/f/xrbkvbvw" method="POST" class="mt-4 space-y-3 w-full max-w-md">
-      <input type="text" name="name" placeholder="Your Name" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required>
-      <input type="email" name="email" placeholder="Your Email" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required>
-      <input type="text" name="phone" placeholder="Your Phone Number" class="w-full p-2 bg-white text-gray-800 border border-gray-300">
-      <textarea name="message" placeholder="Your Message" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required></textarea>
-      <button type="submit" class="w-full p-2 bg-[#b388eb] text-white hover:bg-[#89cff0] transition">Send</button>
-    </form>
-
-    <div id="form-message" class="text-green-500 mt-3 hidden">Thanks! Your message has been sent.</div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="p-5 text-center text-[#555]">
-    <p class="mb-2">Connect with me 🌐</p>
-    <div class="flex justify-center space-x-5 mt-2">
-      <a href="https://instagram.com/revex.inc" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/30/555/instagram-new.png" alt="Instagram"/>
-      </a>
-      <a href="https://github.com/YOUR_GITHUB" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/30/555/github.png" alt="GitHub"/>
-      </a>
-      <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/30/555/linkedin.png" alt="LinkedIn"/>
-      </a>
-      <a href="https://twitter.com/YOUR_TWITTER" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/30/555/twitterx--v1.png" alt="Twitter"/>
-      </a>
-      <a href="https://youtube.com/@YOUR_YOUTUBE" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/30/555/youtube-play.png" alt="YouTube"/>
-      </a>
-      <a href="https://wa.me/9035374762" target="_blank">
-        <img src="https://img.icons8.com/ios-filled/30/555/whatsapp.png" alt="WhatsApp"/>
-      </a>
+<!-- Projects -->
+<section id="projects" class="min-h-screen flex flex-col justify-center items-center px-4 text-center">
+  <h2 class="text-4xl font-bold text-gray-900 mb-6">My Work</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+    <div class="bg-white rounded-lg p-4 shadow">
+      <h3 class="text-xl font-semibold text-gray-800">Project One</h3>
+      <p class="text-gray-600">Landing page for a digital brand.</p>
     </div>
-  </footer>
+    <div class="bg-white rounded-lg p-4 shadow">
+      <h3 class="text-xl font-semibold text-gray-800">Project Two</h3>
+      <p class="text-gray-600">Portfolio site built with Tailwind.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- GSAP + Typewriter -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
+<!-- Contact -->
+<section id="contact" class="h-screen flex flex-col justify-center items-center px-4 text-center">
+  <h2 class="text-4xl font-bold text-gray-900">Contact</h2>
+  <p class="mt-4 text-gray-700">Let's work together 💌</p>
+  <form action="https://formspree.io/f/xrbkvbvw" method="POST" class="mt-4 space-y-3 w-full max-w-md">
+    <input type="text" name="name" placeholder="Your Name" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required>
+    <input type="email" name="email" placeholder="Your Email" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required>
+    <textarea name="message" placeholder="Your Message" class="w-full p-2 bg-white text-gray-800 border border-gray-300" required></textarea>
+    <button type="submit" class="w-full p-2 bg-[#b388eb] text-white rounded hover:bg-[#89cff0] transition">Send</button>
+  </form>
+  <div id="form-message" class="text-green-500 mt-3 hidden">Thanks! Your message has been sent.</div>
+</section>
 
-    // Scroll animation
-    gsap.from("#about, #skills, #contact", {
-      duration: 1,
-      y: 50,
-      opacity: 0,
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top center",
-        toggleActions: "play none none reverse"
+<!-- Footer -->
+<footer class="p-5 text-center text-[#555]">
+  <p>© 2025 Affan — Built with 💖</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+  // Typewriter lines
+  const lines = ["Welcome to My World", "I'm Affan", "I Build Digital Magic"];
+  let index = 0;
+  let element = document.getElementById("typewriter");
+  function typeNext() {
+    element.textContent = "";
+    element.style.borderRight = "3px solid #b388eb";
+    let i = 0;
+    let interval = setInterval(() => {
+      element.textContent += lines[index].charAt(i);
+      i++;
+      if (i > lines[index].length) {
+        clearInterval(interval);
+        setTimeout(() => {
+          index = (index + 1) % lines.length;
+          typeNext();
+        }, 2000);
       }
+    }, 100);
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    typeNext();
+    // Lottie animation
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-anim'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets10.lottiefiles.com/packages/lf20_q5pk6p1k.json'
     });
-
-    // Reliable Typewriter Effect
-    window.addEventListener('DOMContentLoaded', () => {
-      const el = document.getElementById("typewriter");
-      el.style.width = "0";
-      el.style.overflow = "hidden";
-      el.style.whiteSpace = "nowrap";
-      el.style.borderRight = "3px solid #b388eb";
-
-      el.animate([
-        { width: "0" },
-        { width: "100%" }
-      ], {
-        duration: 4000,
-        iterations: 1,
-        easing: "steps(40, end)",
-        fill: "forwards"
-      });
-    });
-
-    // Formspree message feedback
-    const form = document.querySelector("form");
-    const message = document.getElementById("form-message");
-
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      const res = await fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" }
-      });
-
-      if (res.ok) {
-        form.reset();
-        message.classList.remove("hidden");
-      } else {
-        message.innerText = "Oops! Something went wrong.";
-        message.classList.remove("hidden");
-        message.classList.replace("text-green-500", "text-red-500");
-      }
-    });
-  </script>
+  });
+</script>
 </body>
 </html>
