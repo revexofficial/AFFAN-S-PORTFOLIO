@@ -1,0 +1,451 @@
+import React, { useState, useEffect } from 'react';
+import { Code, Palette, Rocket, Mail, Instagram, Briefcase, Award, Target, ChevronDown, Sparkles, Zap, Star } from 'lucide-react';
+
+export default function Portfolio() {
+  const [scrollY, setScrollY] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 10,
+        y: (e.clientY / window.innerHeight - 0.5) * 10
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  const projects = [
+    {
+      title: "Mera Best Dost",
+      desc: "AI chat web app with Dakhni-style voice & custom UI",
+      tech: "Python, HTML, CSS",
+      gradient: "from-purple-500 to-pink-500",
+      icon: "🤖"
+    },
+    {
+      title: "REVEX™ App",
+      desc: "Task & timetable management with smart reminders",
+      tech: "Flutter, Android Studio",
+      gradient: "from-blue-500 to-cyan-500",
+      icon: "📱"
+    },
+    {
+      title: "Roasting App",
+      desc: "Fun Dakhni language app for friends",
+      tech: "Android Studio",
+      gradient: "from-orange-500 to-red-500",
+      icon: "🔥"
+    },
+    {
+      title: "SufiStones",
+      desc: "Handmade stone rings & keychains business",
+      tech: "DIY Crafts, Marketing",
+      gradient: "from-green-500 to-emerald-500",
+      icon: "💎"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
+      {/* Animated Grid Background */}
+      <div className="fixed inset-0 opacity-10 pointer-events-none">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(rgba(168, 85, 247, 0.5) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(168, 85, 247, 0.5) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+            transform: `perspective(500px) rotateX(60deg) translateY(${scrollY * 0.2}px)`,
+            transformOrigin: 'center top'
+          }}
+        />
+      </div>
+
+      {/* Floating Orbs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-64 h-64 rounded-full blur-3xl opacity-20"
+            style={{
+              background: `radial-gradient(circle, ${i % 3 === 0 ? '#a855f7' : i % 3 === 1 ? '#ec4899' : '#3b82f6'}, transparent)`,
+              top: `${20 + i * 15}%`,
+              left: `${10 + i * 15}%`,
+              animation: `float ${10 + i * 2}s ease-in-out infinite`,
+              animationDelay: `${i * -2}s`
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center px-4">
+        <div className="relative z-10 text-center max-w-5xl mx-auto">
+          {/* 3D Avatar */}
+          <div className="mb-12 relative inline-block" style={{ perspective: '1000px' }}>
+            <div 
+              className="relative w-48 h-48 mx-auto"
+              style={{
+                transformStyle: 'preserve-3d',
+                animation: 'levitate 4s ease-in-out infinite',
+                transform: `rotateX(${mousePosition.y}deg) rotateY(${mousePosition.x}deg)`
+              }}
+            >
+              {/* Rings around avatar */}
+              {[...Array(3)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute inset-0 border-4 rounded-full opacity-30"
+                  style={{
+                    borderColor: i === 0 ? '#a855f7' : i === 1 ? '#ec4899' : '#3b82f6',
+                    transform: `translateZ(${i * -30}px) scale(${1 + i * 0.2})`,
+                    animation: `spin ${10 + i * 5}s linear infinite ${i % 2 === 0 ? 'reverse' : ''}`
+                  }}
+                />
+              ))}
+              
+              <div 
+                className="absolute inset-0 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 rounded-full flex items-center justify-center text-7xl font-black shadow-2xl border-4 border-white/20"
+                style={{
+                  transform: 'translateZ(0px)',
+                  boxShadow: '0 0 80px rgba(168, 85, 247, 0.8)'
+                }}
+              >
+                F
+              </div>
+            </div>
+          </div>
+          
+          <h1 className="text-7xl md:text-9xl font-black mb-6">
+            <span className="inline-block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 text-transparent bg-clip-text"
+                  style={{
+                    textShadow: '0 0 80px rgba(168, 85, 247, 0.5)',
+                    animation: 'fadeInUp 1s ease-out'
+                  }}>
+              SYED AFFAN
+            </span>
+          </h1>
+          
+          <p className="text-2xl md:text-3xl font-bold text-purple-300 mb-8"
+             style={{ animation: 'fadeInUp 1s ease-out 0.3s backwards' }}>
+            13-Year-Old Digital Architect & Future Tech Pioneer
+          </p>
+          
+          <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto"
+             style={{ animation: 'fadeInUp 1s ease-out 0.6s backwards' }}>
+            <Zap className="inline w-6 h-6 text-yellow-400" /> Crafting the impossible from <span className="text-purple-400 font-semibold">Sagar, Karnataka, India</span>
+          </p>
+
+          <div className="flex flex-wrap gap-6 justify-center mb-16"
+               style={{ animation: 'fadeInUp 1s ease-out 0.9s backwards' }}>
+            <a href="mailto:revexofficial@gmail.com" 
+               className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-bold hover:scale-110 transition-transform"
+               style={{ boxShadow: '0 0 40px rgba(168, 85, 247, 0.6)' }}>
+              <span className="flex items-center gap-3">
+                <Mail className="w-6 h-6" />
+                Launch Signal
+              </span>
+            </a>
+            
+            <a href="https://instagram.com/revex.official" target="_blank" rel="noopener noreferrer"
+               className="group px-8 py-4 bg-black/60 backdrop-blur-xl rounded-full font-bold border-2 border-purple-500 hover:bg-purple-500/20 hover:scale-110 transition-all">
+              <span className="flex items-center gap-3">
+                <Instagram className="w-6 h-6" />
+                @revex.official
+              </span>
+            </a>
+          </div>
+
+          <ChevronDown className="w-10 h-10 mx-auto text-purple-400 animate-bounce" />
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-32 px-4 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-6xl md:text-7xl font-black mb-16 text-center bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text"
+              style={{ textShadow: '0 0 60px rgba(168, 85, 247, 0.5)' }}>
+            THE ARCHITECT
+          </h2>
+          
+          <div className="bg-black/60 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 hover:border-purple-500/50 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30"
+               style={{ boxShadow: '0 0 60px rgba(168, 85, 247, 0.2)' }}>
+            <div className="absolute top-4 right-4 text-6xl animate-spin-slow opacity-50">🚀</div>
+            <p className="text-xl text-gray-200 leading-relaxed mb-6 relative z-10">
+              Yo! I'm <span className="text-purple-400 font-bold text-2xl">Fan</span> — a 13-year-old who refuses to wait for the future because I'm already building it. From AI apps that speak Dakhni to handcrafted stone jewelry, I turn wild ideas into reality before breakfast.
+            </p>
+            
+            <p className="text-xl text-gray-200 leading-relaxed mb-6 relative z-10">
+              Right now? I'm on a mission to complete my <span className="text-pink-400 font-bold">Quran Hifz</span>, master every programming language I can get my hands on, and scale my brands <span className="text-purple-400 font-bold">REVEX™</span> and <span className="text-emerald-400 font-bold">SufiStones</span> to the stratosphere.
+            </p>
+
+            <p className="text-xl text-gray-200 leading-relaxed relative z-10">
+              <Star className="inline w-6 h-6 text-yellow-400 animate-pulse" /> My endgame? Becoming a legendary software engineer and entrepreneur who builds products that don't just solve problems — they redefine what's possible. Ready to join the revolution? 🔥
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="py-32 px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-6xl md:text-7xl font-black mb-16 text-center bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 text-transparent bg-clip-text"
+              style={{ textShadow: '0 0 60px rgba(168, 85, 247, 0.5)' }}>
+            SKILL MATRIX
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { 
+                category: "CODE SORCERY", 
+                items: ["Python Mastery", "Web Alchemy", "Flutter Magic", "Android Wizardry", "UI/UX Artistry"],
+                icon: Code,
+                emoji: "⚡"
+              },
+              { 
+                category: "CREATIVE CHAOS", 
+                items: ["Digital Painting", "Motion Graphics", "Character Forge", "Jewelry Craft"],
+                icon: Palette,
+                emoji: "🎨"
+              },
+              { 
+                category: "EMPIRE BUILDING", 
+                items: ["Brand Genesis", "Viral Content", "Freelance Domination", "Marketing Genius"],
+                icon: Rocket,
+                emoji: "🚀"
+              }
+            ].map((skill, idx) => (
+              <div key={idx} className="bg-black/60 backdrop-blur-2xl rounded-3xl p-8 border border-white/10 hover:border-purple-500/50 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30"
+                   style={{ 
+                     boxShadow: '0 0 60px rgba(168, 85, 247, 0.2)',
+                     animation: `fadeInUp 0.8s ease-out ${idx * 0.2}s backwards`
+                   }}>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="p-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl hover:rotate-12 transition-transform"
+                       style={{ boxShadow: '0 0 30px rgba(168, 85, 247, 0.6)' }}>
+                    <skill.icon className="w-8 h-8" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-black text-white">
+                      {skill.category}
+                    </h3>
+                    <span className="text-3xl">{skill.emoji}</span>
+                  </div>
+                </div>
+                
+                <ul className="space-y-4">
+                  {skill.items.map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-gray-300 hover:text-white hover:translate-x-2 transition-all">
+                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-pulse"
+                           style={{ boxShadow: '0 0 10px rgba(168, 85, 247, 0.8)' }} />
+                      <span className="font-semibold text-lg">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="py-32 px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-6xl md:text-7xl font-black mb-16 text-center bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 text-transparent bg-clip-text"
+              style={{ textShadow: '0 0 60px rgba(168, 85, 247, 0.5)' }}>
+            LEGENDARY BUILDS
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project, idx) => (
+              <div key={idx} className="group bg-black/60 backdrop-blur-2xl rounded-3xl p-8 border border-white/10 hover:border-purple-500/50 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30 overflow-hidden relative"
+                   style={{ 
+                     boxShadow: '0 0 60px rgba(168, 85, 247, 0.2)',
+                     animation: `fadeInUp 0.8s ease-out ${idx * 0.15}s backwards`
+                   }}>
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 transition-opacity`} />
+                
+                <div className="relative z-10">
+                  <div className="text-7xl mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all">
+                    {project.icon}
+                  </div>
+                  <h3 className="text-3xl font-black mb-4 text-white group-hover:text-purple-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 text-lg mb-6 group-hover:text-gray-200 transition-colors">{project.desc}</p>
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border-2 border-white/20 rounded-full text-sm font-bold group-hover:border-purple-500 group-hover:bg-purple-500/20 transition-all">
+                    {project.tech}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements */}
+      <section className="py-32 px-4 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-6xl md:text-7xl font-black mb-16 text-center bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 text-transparent bg-clip-text"
+              style={{ textShadow: '0 0 60px rgba(168, 85, 247, 0.5)' }}>
+            POWER MOVES
+          </h2>
+          
+          <div className="space-y-6">
+            {[
+              { text: "Memorizing Quran (Hifz) - Ongoing Journey", icon: "📖" },
+              { text: "Built DIY Driving Simulator with PVC & Mechanical Controls", icon: "🎮" },
+              { text: "Created Multiple Apps & Web Applications at Age 13", icon: "📱" },
+              { text: "Launched REVEX™ Brand & Social Media Presence", icon: "🏢" },
+              { text: "Founded SufiStones - Handmade Jewelry Business", icon: "💎" }
+            ].map((achievement, idx) => (
+              <div key={idx} className="bg-black/60 backdrop-blur-2xl rounded-2xl p-8 border border-white/10 hover:border-purple-500/50 transition-all hover:translate-x-4 hover:shadow-2xl hover:shadow-purple-500/30 flex items-center gap-6"
+                   style={{ 
+                     boxShadow: '0 0 40px rgba(168, 85, 247, 0.2)',
+                     animation: `slideInLeft 0.8s ease-out ${idx * 0.1}s backwards`
+                   }}>
+                <div className="text-6xl hover:scale-125 hover:rotate-12 transition-all">
+                  {achievement.icon}
+                </div>
+                <p className="text-xl font-bold text-gray-200 hover:text-white transition-colors flex-1">
+                  {achievement.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Future Goals */}
+      <section className="py-32 px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-6xl md:text-7xl font-black mb-16 text-center bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 text-transparent bg-clip-text"
+              style={{ textShadow: '0 0 60px rgba(168, 85, 247, 0.5)' }}>
+            NEXT LEVEL
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { icon: Award, text: "Complete Quran Hifz by 10th Standard", color: "from-green-500 to-emerald-500", emoji: "🎯" },
+              { icon: Code, text: "Become a Legendary Software Engineer", color: "from-blue-500 to-purple-500", emoji: "👨‍💻" },
+              { icon: Rocket, text: "Scale REVEX™ & SufiStones to Global Brands", color: "from-pink-500 to-red-500", emoji: "🌍" },
+              { icon: Target, text: "Master Every Major Programming Language", color: "from-orange-500 to-yellow-500", emoji: "⚡" }
+            ].map((goal, idx) => (
+              <div key={idx} className="bg-black/60 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 hover:border-purple-500/50 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/30"
+                   style={{ 
+                     boxShadow: '0 0 60px rgba(168, 85, 247, 0.2)',
+                     animation: `fadeInUp 0.8s ease-out ${idx * 0.15}s backwards`
+                   }}>
+                <div className={`inline-flex p-6 bg-gradient-to-br ${goal.color} rounded-3xl mb-6 hover:scale-110 hover:rotate-12 transition-transform`}
+                     style={{ boxShadow: '0 0 40px rgba(168, 85, 247, 0.6)' }}>
+                  <goal.icon className="w-10 h-10" />
+                </div>
+                <p className="text-2xl font-bold text-gray-200 hover:text-white transition-colors mb-4">
+                  {goal.text}
+                </p>
+                <span className="text-5xl">{goal.emoji}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section className="py-32 px-4 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-black/60 backdrop-blur-2xl rounded-3xl p-16 border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-2xl hover:shadow-purple-500/30"
+               style={{ boxShadow: '0 0 80px rgba(168, 85, 247, 0.3)' }}>
+            <h2 className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text"
+                style={{ textShadow: '0 0 60px rgba(168, 85, 247, 0.5)' }}>
+              LET'S BUILD THE FUTURE
+            </h2>
+            
+            <p className="text-2xl text-gray-300 mb-12">
+              Got a wild idea? A crazy project? Let's make it happen. 🚀
+            </p>
+            
+            <div className="flex flex-wrap gap-6 justify-center">
+              <a href="mailto:revexofficial@gmail.com" 
+                 className="px-10 py-5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-black text-xl hover:scale-110 transition-transform"
+                 style={{ boxShadow: '0 0 60px rgba(168, 85, 247, 0.8)' }}>
+                <span className="flex items-center gap-3">
+                  <Mail className="w-7 h-7" />
+                  DROP ME A LINE
+                </span>
+              </a>
+              
+              <a href="https://instagram.com/revex.official" target="_blank" rel="noopener noreferrer"
+                 className="px-10 py-5 bg-black/60 backdrop-blur-xl rounded-full font-black text-xl border-4 border-purple-500 hover:bg-purple-500/20 hover:scale-110 transition-all">
+                <span className="flex items-center gap-3">
+                  <Instagram className="w-7 h-7" />
+                  FOLLOW THE JOURNEY
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-16 px-4 border-t-2 border-purple-500/30 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
+            BUILT WITH PURE PASSION BY SYED AFFAN
+          </p>
+          <p className="text-gray-500 text-lg">© 2025 REVEX™ - REDEFINING THE IMPOSSIBLE</p>
+        </div>
+      </footer>
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from { 
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to { 
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-30px); }
+        }
+
+        @keyframes levitate {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+
+        .animate-spin-slow {
+          animation: spin 20s linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+}
